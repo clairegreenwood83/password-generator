@@ -29,6 +29,7 @@ Generate a password when the button is clicked present a series of prompts for p
 
 ## Deployment
 
+![password-generator](https://user-images.githubusercontent.com/118351853/213005656-62d43394-33b1-49dd-be07-0aa7c8b2ef0f.png)
 
 
 
