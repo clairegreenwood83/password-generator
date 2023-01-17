@@ -29,8 +29,13 @@ Generate a password when the button is clicked present a series of prompts for p
 
 ## Deployment
 
-![password-generator](https://user-images.githubusercontent.com/118351853/213005656-62d43394-33b1-49dd-be07-0aa7c8b2ef0f.png)
+The password generator can be accessed [here.] (https://clairegreenwood83.github.io/password-generator/)
 
+Once the web browser is open, click on the generate password button. The user will then be taken through a series of prompts allowing them to determine how long the password will be and whether they would like it to contain uppercase, lowercase, numerical or special characters. The password generated will then be shown in the browser. Currently, the code is unable to generate the password to the browser, further code development is required and intended to rectify this. 
+
+The web browser looks as shown below:
+
+![password-generator](https://user-images.githubusercontent.com/118351853/213005656-62d43394-33b1-49dd-be07-0aa7c8b2ef0f.png)
 
 
 ## Technology Stack
