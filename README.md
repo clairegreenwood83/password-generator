@@ -22,11 +22,6 @@ Generate a password when the button is clicked present a series of prompts for p
 - Code should validate for each input and at least one character type should be selected
 - Once prompts are answered then the password should be generated and displayed in an alert or written to the page
 
-
-## Skills
-
-
-
 ## Deployment
 
 The password generator can be accessed [here.](https://clairegreenwood83.github.io/password-generator/)
