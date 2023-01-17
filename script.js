@@ -102,7 +102,7 @@ var haveUppercase = "";
 var haveLowercase = "";
 var haveNumbers = "";
 var haveSpecialChar = "";
-var passwordLength = 0;
+var passwordLength = 0; //variable for password length
 let characterSet = []; // array to hold possible password characters
 
 
@@ -130,7 +130,7 @@ function getPasswordOptions() {
     alert('Please select at least one');
   }
 
-  // if NaN code
+  // need code for if user input is NaN for password length
 
 
 
@@ -155,32 +155,33 @@ function generatePassword() {
   getPasswordOptions();
 
   if (haveLowercase === true) {
-    characterSet = characterSet.concat[lowerCasedCharacters];
+    characterSet = characterSet.concat[lowerCasedCharacters]; // if user has selected lowercase this adds the lowercase characters to characterSet array.
   }
 
   if (haveUppercase === true) {
-    characterSet = characterSet.concat[upperCasedCharacters];
+    characterSet = characterSet.concat[upperCasedCharacters]; // if user has selected uppercase this adds the uppercase characters to characterSet array.
   }
 
   if (haveSpecialChar === true) {
-    characterSet = characterSet.concat[specialCharacters];
+    characterSet = characterSet.concat[specialCharacters]; // if user has selected special characters this adds the special characters to characterSet array.
   }
 
   if (haveNumbers === true) {
-    characterSet = characterSet.concat[numericCharacters];
+    characterSet = characterSet.concat[numericCharacters]; // if user has selected numbers this adds the numerical characters to characterSet array.
   }
 
   let passwordChar = "";
-// for (var i = 0; i < passwordLength; i++) {
-    // passwordChar += characterSet[Math.floor(Math.random() * characterSet.length)];
+     for (var i = 0; i < passwordLength; i++) {
+     passwordChar += characterSet[Math.floor(Math.random() * characterSet.length)];
     
+ }
+// potential alternative way to get random characters?
+  // for (var i = 0; i < passwordLength; i++) {
+  //   getRandom(characterSet);
   // }
-
-  for (var i = 0; i < passwordLength; i++) {
-    getRandom(characterSet);
-  }
  return passwordChar; 
 }
+
 
 // Write password to the #password input
 function writePassword() {
