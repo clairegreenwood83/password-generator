@@ -103,37 +103,39 @@ var haveLowercase = "";
 var haveNumbers = "";
 var haveSpecialChar = "";
 var passwordLength = 0;
-let characterSet = ""; // variable to hold password characters
+let characterSet = []; // array to hold possible password characters
+
 
 function getPasswordOptions() {
 
   var passwordLength = prompt("How long would you like your password to be?");
   
-  if (passwordLength < 10) {
-    alert("It should be at least 10 characters.");
-    return(passwordLength);
-  }
-  if (passwordLength > 64) {
-    alert("It should be less than 64 characters.");
-    return
-  }
+  while (passwordLength < 10 || passwordLength > 64) {
+    alert("It should be at least 10 characters and less than 64 characters.");
+    var passwordLength = prompt("How long would you like your password to be?");
+  } 
+  alert("Your password will be " + passwordLength + " characters long.");
 
   var haveUppercase = confirm("Do you want uppercase letters?");
 
   var haveLowercase = confirm("Do you want lowercase letters?");
-  
+
   var haveNumbers = confirm("Do you want to include numbers?"); 
-  
+
   var haveSpecialChar = confirm("Do you want to include special characters?");
+
+  }
 
   if (haveUppercase + haveLowercase + haveNumbers + haveSpecialChar === 0) {
     alert('Please select at least one');
-    return(getPasswordOptions);
   }
-}
 
-/*
+  // if NaN code
+
+
+
 // Function for getting a random element from an array
+
 function getRandom(arr) {
 
   // get random index value
@@ -144,70 +146,41 @@ function getRandom(arr) {
 
   return item;
 }
-*/
+
+
 // Function to generate password with user input
 
-
-//let passwordChar = "";
-
-function generatePassword() {
+function generatePassword() {  
+  
   getPasswordOptions();
 
   if (haveLowercase === true) {
-    characterSet += lowerCasedCharacters;
+    characterSet = characterSet.concat[lowerCasedCharacters];
   }
 
   if (haveUppercase === true) {
-    characterSet += upperCasedCharacters;
+    characterSet = characterSet.concat[upperCasedCharacters];
   }
 
   if (haveSpecialChar === true) {
-    characterSet += specialCharacters;
+    characterSet = characterSet.concat[specialCharacters];
   }
 
   if (haveNumbers === true) {
-    characterSet += numericCharacters;
+    characterSet = characterSet.concat[numericCharacters];
   }
 
-  // console.log(characterSet);
-let passwordChar = "";
+  let passwordChar = "";
+// for (var i = 0; i < passwordLength; i++) {
+    // passwordChar += characterSet[Math.floor(Math.random() * characterSet.length)];
+    
+  // }
+
   for (var i = 0; i < passwordLength; i++) {
-    passwordChar += characterSet(Math.floor(Math.random() * characterSet.length));
-    
+    getRandom(characterSet);
   }
-
-  return; //(passwordChar);
-
-  
+ return passwordChar; 
 }
-  /*
-  for (var i = 0; i <= passwordLength; i++) {
-    var randomNumber = Math.floor(Math.random() * chars.length);   
-
-    if (haveUppercase = true) {
-      const getUppercase = getRandom(upperCasedCharacters);
-      console.log(getUppercase);
-    }
-    
-    if (haveLowercase = true) {
-      const getLowercase = getRandom(lowerCasedCharacters);
-      console.log(getLowercase);
-    }
-    
-    if (haveNumbers = true) {
-      const getNumbers = getRandom(numericCharacters);
-      console.log(getNumbers);
-    }
-    
-    if (haveSpecialChar = true) {
-      const getSpecialChar = getRandom(specialCharacters);
-      console.log(getSpecialChar);
-    }
-  
-  }
-} */
-
-
 
 // Write password to the #password input
 function writePassword() {
@@ -215,7 +188,6 @@ function writePassword() {
   var passwordText = document.querySelector('#password');
 
   passwordText.value = password;
-  return;
 }
 
 // Get references to the #generate element
