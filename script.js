@@ -101,7 +101,7 @@ var haveLowercase;
 var haveNumbers;
 var haveSpecialChar;
 var passwordLength = ""; //variable for password length
-let characterSet = []; // array to hold possible password characters
+
 
 
 function getPasswordOptions() {
@@ -122,38 +122,29 @@ function getPasswordOptions() {
 
   var haveSpecialChar = confirm("Do you want to include special characters?");
 
+  // var responses = {
+  //   length: passwordLength,
+  //   number: haveNumbers,
+  //   uppercase: haveUppercase,
+  //   lowercase: haveLowercase,
+  //   specialcharacters: haveSpecialChar
+  // }
+
   if (haveUppercase + haveLowercase + haveNumbers + haveSpecialChar === 0) {
     alert('Please select at least one');
-  }
-//console.log(getPasswordOptions);
+    var haveUppercase = confirm("Do you want uppercase letters?");
 
-  return getPasswordOptions
-}
-  // need code for if user input is NaN for password length
-
-
-// Function for getting a random element from an array
-
-// function getRandom(arr) {
-
-//   // get random index value
-//   const randomIndex = Math.floor(Math.random() * arr.length);
-
-//   // get random item
-//   const item = arr[randomIndex];
-
-//   return item;
- //}
-
-
-// Function to generate password with user input
-
-function generatePassword() {  
+    var haveLowercase = confirm("Do you want lowercase letters?");
   
-  getPasswordOptions()
+    var haveNumbers = confirm("Do you want to include numbers?"); 
+  
+    var haveSpecialChar = confirm("Do you want to include special characters?");
+  }
+
+  let characterSet = []; // array to hold possible password characters
 
   if (haveLowercase) {
-    characterSet = characterSet.concat(lowerCasedCharacters) // if user has selected lowercase this adds the lowercase characters to characterSet array.
+    characterSet = characterSet.concat(lowerCasedCharacters); // if user has selected lowercase this adds the lowercase characters to characterSet array.
   }
 
   if (haveUppercase) {
@@ -170,22 +161,39 @@ function generatePassword() {
 
   console.log(characterSet);
 
-  let passwordChar = "";
+  return characterSet;
+  
+};
+
+// need code for if user input is NaN for password length
+
+
+// Function for getting a random element from an array
+// function getRandom(arr) {
+//   // get random index value
+//   const randomIndex = Math.floor(Math.random() * arr.length);
+//   // get random item
+//   const item = arr[randomIndex];
+//   return item;
+//}
+
+
+// Function to generate password with user input
+
+function generatePassword() { 
+getPasswordOptions();
+
+ console.log(getPasswordOptions);
+
+  let passwordChar = ""
 
      for (var i = 0; i < passwordLength; i++) {
      passwordChar = passwordChar + characterSet[Math.floor(Math.random() * characterSet.length)];
   
      console.log(passwordChar);
  }
- return passwordChar
-}
-// potential alternative way to get random characters?
-  // for (var i = 0; i < passwordLength; i++) {
-  //   getRandom(characterSet);
-  // }
-
-//}
-
+ return passwordChar;
+};
 
 // Write password to the #password input
 function writePassword() {
@@ -193,4 +201,4 @@ function writePassword() {
     var passwordText = document.querySelector('#password');
 
     passwordText.value = password;
-}
+};
