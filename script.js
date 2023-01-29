@@ -102,7 +102,7 @@ var haveNumbers;
 var haveSpecialChar;
 var passwordLength = ""; //variable for password length
 
-
+let characterSet = []; // array to hold possible password characters
 
 function getPasswordOptions() {
 
@@ -141,7 +141,7 @@ function getPasswordOptions() {
     var haveSpecialChar = confirm("Do you want to include special characters?");
   }
 
-  let characterSet = []; // array to hold possible password characters
+  
 
   if (haveLowercase) {
     characterSet = characterSet.concat(lowerCasedCharacters); // if user has selected lowercase this adds the lowercase characters to characterSet array.
@@ -181,14 +181,14 @@ function getPasswordOptions() {
 // Function to generate password with user input
 
 function generatePassword() { 
-getPasswordOptions();
+var passwordOptions = getPasswordOptions();
 
- console.log(getPasswordOptions);
+ console.log(passwordOptions);
 
   let passwordChar = ""
 
      for (var i = 0; i < passwordLength; i++) {
-     passwordChar = passwordChar + characterSet[Math.floor(Math.random() * characterSet.length)];
+     passwordChar = passwordChar + passwordOptions[Math.floor(Math.random() * passwordOptions.length)];
   
      console.log(passwordChar);
  }
